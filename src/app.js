@@ -19,4 +19,17 @@ app.get('/fecha-completa', (req,res) =>{
 })
 //http://localhost:3000
 
+app.use((req, res, next) => {
+    res.status(404).send(`
+        <html>
+          <head>
+            <title>Error 404 - No encontrado</title>
+          </head>
+          <body style="text-align: center; font-family: Arial;">
+            <h1>¡Oops! Página no encontrada</h1>
+            <img src="https://http.cat/404" alt="Error 404" style="width: 50%;">
+          </body>
+        </html>
+    `);
+});
 export default app
